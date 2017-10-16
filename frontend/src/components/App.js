@@ -11,12 +11,28 @@ const App = ({ testString, reducerTest }) => {
                     모든 것을 이곳에서부터 시작하세요!
                 </p>
                 {testString}
-            <div>
-                <button
-                    onClick={reducerTest}>
-                    REDUCER TEST
+                <div>
+                    <button
+                        className="btn"
+                        onClick={reducerTest}>
+                        REDUCER TEST
                 </button>
-            </div>
+                </div>
+                <h1>사용된 기술들</h1>
+                <ul className="introduce">
+                    <li>---BACKEND---</li>
+                    <li>express</li>
+                    <li>예정: express session</li>
+                    <li>예정: mongoose</li>
+                    <li>예정: bcrypt</li>
+                    <li>예정: multer</li>
+                    <li>---FRONTEND---</li>
+                    <li>React</li>
+                    <li>Redux</li>
+                    <li>Create-react-app</li>
+                    <li>예정: react-router</li>
+                    <li>예정: redux-thunk</li>
+                </ul>
             </div>
         </div>
     )

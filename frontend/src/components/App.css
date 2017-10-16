@@ -6,9 +6,40 @@
 
 .App-title {
   padding-top: 10rem;
-  font-size: 1.5em;
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 .App-intro {
-  padding-top: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.App .btn {
+  margin-top: 3rem;
+}
+
+.App .introduce {
+  text-align: center;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+@media screen and (max-width: 800px){
+  .App-title{
+    font-size: 150%;
+  }
+  .App-intro{
+    font-size: 70%;
+  }
+  .App .introduce{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}
+@media screen and (max-width: 480px){
+  .App .introduce{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
