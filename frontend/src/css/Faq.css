@@ -1,0 +1,76 @@
+.faq{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.faq h1 {
+    text-align: center;
+}
+
+.faq .show{
+    font-size: 1rem;
+    padding-left: 70vw;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+.faq .intro{
+    font-size: 0.8rem;
+    font-weight: lighter;
+    letter-spacing: 7px;
+    margin-bottom: 10px;
+}
+
+.faq .divider {
+    width: 80vw;
+    border-bottom: 1px solid #eee;
+}
+
+.faq .faqContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+}
+.faq .faqContainer .faqItem{
+    width: 80vw;;
+    height: 50px;
+    background: #EEE;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.faq .faqContainer .faqItem:hover{
+    cursor: pointer;
+}
+
+.faq .faqContainer .faqItem .qs{
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding-left: 40px;
+}
+
+.faq .faqContainer .aw{
+
+    width: 80vw;
+    height: 0;
+    margin-top: 0px;
+    transition: 0.3s;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+}
+
+.faq .faqContainer .aw.true{
+    margin-top: 20px;
+    font-size: 1rem;
+    height: 30px;
+    padding: 20px;
+    margin-left: 20px;
+}
