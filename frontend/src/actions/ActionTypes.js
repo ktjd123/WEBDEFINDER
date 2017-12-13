@@ -1,3 +1,12 @@
 
+export const WRITE = 'WRITE'
+export const WRITE_SUCCESS = 'WRITE_SUCCESS'
+export const WRITE_FAILURE = 'WRITE_FAILURE'
 
-export const TEST = 'TEST';
+export const POST_COUNT = 'POST_COUNT'
+export const POST_COUNT_SUCCESS = 'POST_COUNT_SUCCESS'
+export const POST_COUNT_FAILURE = 'POST_COUNT_FAILURE'
+
+export const POST_LIST = "POST_LIST"
+export const POST_LIST_SUCCESS = "POST_LIST_SUCCESS"
+export const POST_LIST_FAILURE = "POST_LIST_FAILURE"

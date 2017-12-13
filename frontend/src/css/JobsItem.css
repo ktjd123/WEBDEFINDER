@@ -1,0 +1,11 @@
+.jobsItem .show{
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background: #EEE!important;
+    border-top: 3px solid darkgray;
+}
+
+.jobsItem .container{
+    margin-bottom: 10px;
+}

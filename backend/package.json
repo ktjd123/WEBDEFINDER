@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src -d ./../build/backend --presets=es2015 && rm -r ./../build/backend/node_modules &&cp -r ./node_modules ./../build/backend/node_modules  && rm -r ./../build/backend/scripts",
     "start": "node ./../build/backend/index.js",
-    "development": "node ./src/scripts/development.js",
+    "d": "node ./src/scripts/development.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sungmin Kim",
@@ -14,10 +14,12 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.0",
     "express": "^4.16.0",
     "express-session": "^1.15.6",
     "mongoose": "^4.12.3",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "schema-inspector": "^1.6.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

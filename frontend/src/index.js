@@ -19,10 +19,13 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from 'components/Header/Header'
 //HEADER import
 
-import { App, Faq } from 'containers'
+import { App, Faq, Jobs, Write, Detail } from 'containers'
 
 //default css
 import 'css/default.css';
+
+//toast
+import { ToastContainer } from 'react-toastify';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
@@ -31,9 +34,22 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Header />
+                
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    pauseOnHover />
+
                 <Switch>
                     <Route exact path='/home' component={App} />
-                    <Route exact path='/faq' component={Faq}/>
+                    <Route exact path='/faq' component={Faq} />
+                    <Route exact path='/jobs/:id' component={Jobs}/>
+                    <Redirect from ='/jobs' to='jobs/1'/>
+                    <Route exact path='/write' component={Write} />
+                    <Route exact path='/detail/:num/:id' component={Detail}/>
                     <Redirect from='/' to='home' />
                 </Switch>
             </div>

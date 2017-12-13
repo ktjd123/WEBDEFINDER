@@ -1,0 +1,45 @@
+.write{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.write .info{
+    display: flex;
+    align-items: center;
+}
+
+.write input, textarea {
+    border: 3px solid #EEE;
+    height: 30px;
+    width: 1000px;
+    font-size: 1rem;
+    margin: 10px 0 10px 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.write .info .writer{
+    width: 770px;
+    margin-right: 20px;
+}
+.write .info .type{
+    height: 37px;
+    width: 200px;
+    border: 3px solid #eee;
+}
+.write .content{
+    width: 1000px;
+    height: 500px;
+    padding: 10px;
+    resize: none;
+    margin-bottom: 40px;
+}
+
+.write .buttons a{
+    cursor: pointer;
+    padding: 6px 20px 6px 20px;
+    border: 2px solid #eee;
+    background: #eee;
+    margin: 0 10px 0 10px;
+}

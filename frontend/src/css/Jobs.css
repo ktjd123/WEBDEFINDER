@@ -1,0 +1,73 @@
+.jobs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.jobs h1{
+    text-align: center;
+}
+
+.jobs .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+}
+
+.jobs .container .show:nth-child(1){
+    border-bottom: none;
+    height: 50px;
+}
+
+.jobs .container .show{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    border-bottom: 3px solid darkgray;
+}
+.jobs .container .show .left{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jobs .container .show .right{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jobs .container .show .number{
+    width: 100px;
+}
+.jobs .container .show .type{
+    width: 100px;
+}
+.jobs .container .show .title{
+    width: 400px;
+}
+.jobs .container .show .writer{
+    width: 100px;
+}
+.jobs .container .show .date{
+    width: 100px;
+}
+.jobs .container .show .view{
+    width: 100px;
+}
+
+.jobs .upload{
+    padding-right: 12px;
+    padding-left: 12px;
+    height: 30px;
+    background: #eee;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}

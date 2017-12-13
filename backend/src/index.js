@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 const db = mongoose.connection;
-mongoose.connect('mongodb://localhost/aiaikasa', (err, db) => {
+mongoose.connect('mongodb://localhost/Webdefineder', (err, db) => {
     if(err){console.error(err)}
     else{console.log('connected to mongodb server')}
 })

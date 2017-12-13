@@ -1,9 +1,12 @@
-import test from 'reducers/test';
+
+import Write from './Write';
+import Post from './Post';
 
 import {combineReducers} from 'redux';
 
 const reducers = combineReducers({
-    test: test
+    Write,
+    Post
 })
 
 export default reducers
