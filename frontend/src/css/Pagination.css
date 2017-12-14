@@ -5,5 +5,9 @@
 
 .PageOut {
     color: gray;
-    font-weight: bold;
+    font-weight: normal;
+}
+
+.PageIn, .PageOut{
+    margin: 0 4px 0 4px;
 }

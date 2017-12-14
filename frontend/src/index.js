@@ -19,7 +19,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from 'components/Header/Header'
 //HEADER import
 
-import { App, Faq, Jobs, Write, Detail, Error404} from 'containers'
+import { App, Faq, Jobs, Write, Detail, Error404, Works} from 'containers'
 
 //default css
 import 'css/default.css';
@@ -51,6 +51,7 @@ ReactDOM.render(
                     <Redirect from ='/jobs' to='jobs/1'/>
                     <Route exact path='/write' component={Write} />
                     <Route exact path='/detail/:num/:id' component={Detail}/>
+                    <Route exact path='/works' component={Works}/>
                     <Route component={Error404}/>
                 </Switch>
             </div>

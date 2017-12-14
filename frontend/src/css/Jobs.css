@@ -71,3 +71,8 @@
     font-size: 0.8rem;
     font-weight: 600;
 }
+
+.jobs .pageCon{
+    display: flex;
+    flex-direction: row-reverse;
+}

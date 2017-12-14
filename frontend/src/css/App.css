@@ -1,3 +1,109 @@
-video{
-    width: 100%;
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.app > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    width: 100vw;
+}
+.app > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+.app.wrapper{
+    background: url(/contact_b.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    margin-bottom: 0;
+}
+.app h1{
+    margin-bottom: 0px;
+}
+
+.app h6{
+    margin-top: 4px;
+}
+
+.app .first{
+    display: flex;
+    align-items: center;
+}
+.app .first img{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 100px;
+}
+
+.app .developer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app .divider{
+    border-bottom: 2px solid #EEE;
+    width: 90vw;
+}
+
+.app .profileCon{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90vw;
+    margin-bottom: 40px;
+}
+
+.app .profileCon .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+.app .profileCon .profile p{
+    height: 50px;
+}
+
+.app .profile > img{
+    width: 200px;
+    height: 200px;
+    border-radius: 300px;
+}
+
+.app .profile .contact{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.app .contact img {
+    width: 40px;
+    height: 40px;
+}
+
+.app .none{
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 180px 0 180px 0;
+}
+
+.app .none h1{
+    font-size: 4rem;
+}
+.app .none h5{
+    font-size: 1rem;
+    margin: 0;
+    color: black;
 }
