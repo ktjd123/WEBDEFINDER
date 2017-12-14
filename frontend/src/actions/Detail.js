@@ -10,12 +10,12 @@ export function detailRequest(id){
     return dispatch => {
         dispatch(detail())
 
-        let url = `/details/${id}`
+        let url = `/api/post/detail/${id}`
 
         return axios.get(url)
         .then(
             response => {
-                dispatch(detailSuccess(response.data.post))
+                dispatch(detailSuccess(response.data))
             }
         )
         .catch(

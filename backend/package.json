@@ -19,6 +19,7 @@
     "express-session": "^1.15.6",
     "mongoose": "^4.12.3",
     "morgan": "^1.9.0",
+    "path": "^0.12.7",
     "schema-inspector": "^1.6.8"
   },
   "devDependencies": {
