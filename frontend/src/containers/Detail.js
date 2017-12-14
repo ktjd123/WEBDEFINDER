@@ -10,7 +10,11 @@ class Detail extends React.Component{
         super(props)
 
         this.state = {
-            
+            title: '',
+            writer: '',
+            type: '',
+            date: '',
+            content: ''
         }
     }
 
@@ -20,6 +24,8 @@ class Detail extends React.Component{
             () => {
                 if(this.props.status === "SUCCESS"){
                     console.log(this.props.post[0])
+                    //TODO - 업데이트 하기 정보
+                    console.log('commit test')
                 }else{
                     toast.error('다시 시도해주세요')
                 }
