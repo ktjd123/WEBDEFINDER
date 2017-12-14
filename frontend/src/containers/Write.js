@@ -34,6 +34,22 @@ class Write extends React.Component {
         let type = this.state.type
         let content = this.state.content
 
+
+        if(title.length > 30){
+            toast.error('제목은 30자 이하만 가능합니다. 현재: '+title.length)
+            return
+        }
+
+        if(writer.length > 10){
+            toast.error('작성자는 10자 이하만 가능합니다. 현재: '+writer.length)
+            return
+        }
+
+        if(content.length > 100000){
+            toast.error('본문은 100000자 이하만 가능합니다. 현재: '+content.length)
+            return
+        }
+
         this.props.writeRequest(title,writer,type,content)
         .then(
             () => {

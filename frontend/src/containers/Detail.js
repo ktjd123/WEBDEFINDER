@@ -1,58 +1,101 @@
 import React from 'react'
 import 'css/Detail.css'
-import {detailRequest} from 'actions/Detail'
-import {connect} from 'react-redux';
-import {toast} from 'react-toastify';
+import { detailRequest } from 'actions/Detail'
+import {postRemoveRequest} from 'actions/Post'
+import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
-class Detail extends React.Component{
+class Detail extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
+            _id: '',
             title: '',
             writer: '',
             type: '',
             date: '',
-            content: ''
+            content: '',
+            views: 0
         }
+
+        this.OnRemove = this.OnRemove.bind(this)
     }
 
-    componentDidMount(){
+    OnRemove(){
+        toast.success('글을 삭제했습니다')
+        this.props.history.push(`/jobs/${this.props.match.params.num}`)
+        this.props.postRemoveRequest(this.state._id)
+        .then(() => {
+        })
+    }
+
+    componentDidMount() {
         this.props.detailRequest(this.props.match.params.id)
-        .then(
+            .then(
             () => {
-                if(this.props.status === "SUCCESS"){
-                    console.log(this.props.post[0])
-                    //TODO - 업데이트 하기 정보
-                    console.log('commit test')
-                }else{
+                if (this.props.status === "SUCCESS") {
+                    let post = this.props.post[0]
+                    let time = String(post.createdTime).substring(0, 10)
+                    this.setState({
+                        _id: post._id,
+                        title: post.title,
+                        writer: post.writer,
+                        type: post.type,
+                        date: time,
+                        views: post.views,
+                        content: post.content
+                    })
+                } else {
                     toast.error('다시 시도해주세요')
                 }
             }
-        )
+            )
     }
 
-    render(){
-        return(
+    render() {
+
+        let jobsUrl = `/jobs/${this.props.match.params.num}`
+
+        return (
             <div className='wrapper detail'>
-                <h1>Detail</h1>
+                <h1>{this.state.title}</h1>
+                <div className='container'>
+                    <div className='info'>
+                        {this.state.type}
+                        <div className='Sinfo'>
+                            <div>{this.state.date}</div>
+                            <div>{this.state.writer}</div>
+                        </div>
+                    </div>
+                    <div className='content'>{this.state.content}</div>
+                    <div className='buttonsC'>
+                        <a className='button' onClick={this.OnRemove}>삭제</a>
+                        <Link to={jobsUrl} className='button'>목록</Link>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return{
+    return {
         status: state.Detail.detail.status,
-        post: state.Detail.detail.data
+        post: state.Detail.detail.data,
+        removeStatus: state.Post.remove.status
     }
 }
 
 const mapDispatchToProps = dispatch => {
-    return{
+    return {
         detailRequest: (id) => {
             return dispatch(detailRequest(id))
+        },
+        postRemoveRequest: (id) => {
+            return dispatch(postRemoveRequest(id))
         }
     }
 }

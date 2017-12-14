@@ -28,17 +28,17 @@ function validateWrite(body){
         properties: {
             title: {
                 type: 'string',
-                maxLength: 100,
+                maxLength: 30,
                 minLength: 1
             },
             writer: {
                 type: 'string',
-                maxLength: 100,
+                maxLength: 10,
                 minLength: 1
             },
             content: {
                 type: 'string',
-                maxLength: 1000,
+                maxLength: 100000,
                 minLength: 1
             }
         }
@@ -113,6 +113,38 @@ router.get('/detail/:id', (req,res) => {
                 code: 1
             })
             console.error(error)
+        }
+    )
+})
+
+router.delete('/:id', (req,res) => {
+    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
+        return res.status(400).json({
+            code: 0
+        })
+    }
+
+    Post.findById(req.params.id).exec()
+    .then(
+        post => {
+            if(!post){
+                return res.status(404).json({
+                    code: 1
+                })
+            }
+            Post.remove({_id: req.params.id}).exec()
+            .then(
+                () => {res.json({success: true})}
+            )
+            .catch(
+                (err) => {console.error(err)}
+            )
+        }
+    )
+    .catch(
+        err => {
+            console.error(err)
+            return res.status(500).send('/api/post/:id delete error')
         }
     )
 })

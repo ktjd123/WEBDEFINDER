@@ -4,7 +4,10 @@ import {
     POST_COUNT_FAILURE,
     POST_LIST,
     POST_LIST_SUCCESS,
-    POST_LIST_FAILURE
+    POST_LIST_FAILURE,
+    POST_REMOVE,
+    POST_REMOVE_SUCCESS,
+    POST_REMOVE_FAILURE
 } from './ActionTypes'
 import axios from 'axios'
 export function getCountRequest() {
@@ -80,5 +83,39 @@ export function postListSuccess(data) {
 export function postListFailure() {
     return {
         type: POST_LIST_FAILURE
+    }
+}
+
+export function postRemoveRequest(id){
+    return (dispatch) => {
+        dispatch(postRemove())
+
+        return axios.delete('/api/post/' + id)
+        .then(
+            res => {
+                dispatch(postRemoveSuccess())
+            }
+        ).catch( err => {
+            dispatch(postRemoveFailure(err.response.data.code))
+        })
+    }
+}
+
+export function postRemove(){
+    return {
+        type: POST_REMOVE
+    }
+}
+
+export function postRemoveSuccess(){
+    return {
+        type: POST_REMOVE_SUCCESS
+    }
+}
+
+export function postRemoveFailure(err){
+    return {
+        type: POST_REMOVE_FAILURE,
+        err
     }
 }

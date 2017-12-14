@@ -12,6 +12,10 @@ const initialState = {
         status: 'INIT',
         data: [],
         
+    },
+    remove: {
+        status: 'INIT',
+        error: -1
     }
 }
 
@@ -57,6 +61,22 @@ export default function Post (state = initialState, action){
             list: {
                 status: {$set: 'FAILURE'}
             }
+        })
+
+        case Types.POST_REMOVE:
+        return update(state, {
+            remove: {$set: 'PENDING'}
+        })
+
+        case Types.POST_REMOVE_SUCCESS:
+        return update(state, {
+            remove: {$set: 'SUCCESS'}
+        })
+
+        case Types.POST_REMOVE_FAILURE:
+        return update(state, {
+            remove: {$set: 'FAILURE'},
+            error: {$set: action.code}
         })
 
         default:

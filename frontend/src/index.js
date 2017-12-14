@@ -19,7 +19,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from 'components/Header/Header'
 //HEADER import
 
-import { App, Faq, Jobs, Write, Detail } from 'containers'
+import { App, Faq, Jobs, Write, Detail, Error404} from 'containers'
 
 //default css
 import 'css/default.css';
@@ -44,13 +44,14 @@ ReactDOM.render(
                     pauseOnHover />
 
                 <Switch>
+                    <Redirect exact from='/' to='home' />
                     <Route exact path='/home' component={App} />
                     <Route exact path='/faq' component={Faq} />
                     <Route exact path='/jobs/:id' component={Jobs}/>
                     <Redirect from ='/jobs' to='jobs/1'/>
                     <Route exact path='/write' component={Write} />
                     <Route exact path='/detail/:num/:id' component={Detail}/>
-                    <Redirect from='/' to='home' />
+                    <Route component={Error404}/>
                 </Switch>
             </div>
         </BrowserRouter>

@@ -3,3 +3,57 @@
     flex-direction: column;
     align-items: center;
 }
+
+.detail .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around
+}
+
+.detail .container .info{
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    height: 50px;
+    border-bottom: 3px solid #EEE;
+    border-top: 3px solid #EEE;
+    padding: 0 20px 0 20px;
+}
+
+.detail .container .info .Sinfo{
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+}
+
+.detail .container .content{
+    padding: 20px;
+    width: 90vw;
+    border-bottom: 3px solid #EEE
+}
+
+.detail .buttonsC{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+}
+
+.detail .button{
+    cursor: pointer;
+    padding-right: 12px;
+    padding-left: 12px;
+    height: 30px;
+    background: #eee;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
