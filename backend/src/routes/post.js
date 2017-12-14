@@ -98,4 +98,23 @@ router.get('/:id', (req,res) => {
     })
 })
 
+router.get('/detail/:id', (req,res) => {
+    let id = req.params.id;
+
+    Post.find({"_id": id}).exec()
+    .then(
+        (post) => {
+            return res.json(post)
+        }
+    )
+    .catch(
+        (error) => {
+            return res.status(500).json({
+                code: 1
+            })
+            console.error(error)
+        }
+    )
+})
+
 export default router;
