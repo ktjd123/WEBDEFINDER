@@ -8,6 +8,7 @@ class Profile extends React.Component {
         let fb = undefined
         let is = undefined
         let gb = undefined
+        let bg = undefined
 
         if(props.fbLink !== undefined && props.fbLink !== ""){
             fb = (<a href={props.fbLink}><img src='/fb.png' alt='' /></a>)
@@ -18,10 +19,13 @@ class Profile extends React.Component {
         }
 
         if(props.gbLink !== undefined && props.gbLink !== ""){
-            console.log('github!')
             gb = (<a href={props.gbLink}><img src='/gb.png' alt='' /></a>)
         }
 
+        if(props.bgLink !== undefined && props.bgLink !== ""){
+            bg = (<a href={props.bgLink}><img src='/blog.png' alt='' /></a>)
+        }
+        
         console.log(props.gbLink)
 
         return (
@@ -33,6 +37,7 @@ class Profile extends React.Component {
                     {fb}
                     {is}
                     {gb}
+                    {bg}
                 </div>
             </div>
         )
@@ -45,7 +50,8 @@ Profile.propTypes = {
     fbLink: PropTypes.string,
     isLink: PropTypes.string,
     imgLink: PropTypes.string,
-    gbLink: PropTypes.string
+    gbLink: PropTypes.string,
+    bgLink: PropTypes.string
 }
 
 Profile.defaultProps = {
@@ -53,7 +59,8 @@ Profile.defaultProps = {
     car: '',
     fbLink: '',
     isLink: '',
-    gbLink: ''
+    gbLink: '',
+    bgLink: ''
 }
 
 export default Profile;

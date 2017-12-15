@@ -3,3 +3,59 @@
     flex-direction: column;
     align-items: center;
 }
+
+.works .column-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.works .container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.works .card {
+    border: 0.1px solid lightgray;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    height: 500px;
+    border-radius: 3px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.works .infoContainer {
+    transition: 0.3s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.works .infoContainer.true{
+    opacity: 1;
+    color: black;
+}
+
+.works .card img.true{
+    opacity: 0.2;
+    filter: blur(8px);
+}

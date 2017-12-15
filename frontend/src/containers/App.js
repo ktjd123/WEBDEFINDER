@@ -31,7 +31,7 @@ export default class App extends React.Component {
                             <h1>DEVELOPER</h1>
                             <div className='profileCon'>
                                 <Profile title="김성민" car="HTML, CSS, JS, JAVA, JSP, C, C#, SWIFT, REACT, NODE, EXPRESS, MONGODB" fbLink="https://www.facebook.com/ktjd123" isLink="https://www.instagram.com/ktjd123" gbLink="https://github.com/peter1262" imgLink="profile.jpeg" />
-                                <Profile title="박혜은" car='HTML, CSS, JS, JSP' isLink="https://www.instagram.com/hailey__park__/" imgLink="phe.jpg" />
+                                <Profile title="박혜은" car='HTML, CSS, JS, JSP' isLink="https://www.instagram.com/hailey__park__/" bgLink="https://blog.naver.com/hailey1220" imgLink="phe.jpg" />
                                 <Profile title="김예지" car='JS, Python' fbLink="https://www.facebook.com/profile.php?id=100003475971121" imgLink="yeji.jpeg" />
                                 <Profile title="장진호" car="C, JS" imgLink='jjh.jpg' />
                             </div>
