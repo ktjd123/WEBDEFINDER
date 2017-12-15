@@ -12,10 +12,6 @@ export default class Card extends React.Component{
         this.mouseOut = this.mouseOut.bind(this)
     }
 
-    componentDidMount(){
-        let rows = []
-    }
-
     onMouse(){
         this.setState({
             shouldDim: true
@@ -29,6 +25,15 @@ export default class Card extends React.Component{
     }
 
     render(){
+
+        const mapToComponent = data => {
+            return data.map((career,i) => {
+                return(
+                    <h6 key={i}>{career}</h6>
+                )
+            })
+        }
+
         return(
             <div className='card'>
                 <img alt='' src={this.props.imgSrc} className={`${this.state.shouldDim}`}/>
@@ -39,21 +44,23 @@ export default class Card extends React.Component{
                     <h3>PHONE</h3>
                     <h5>{this.props.phone}</h5>
                     <h3>CAREER</h3>
-                    <h5>{this.props.career}</h5>
+                    <div className='carrerCon'>
+                        {mapToComponent(this.props.career)}
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-this.propTypes = {
+Card.propTypes = {
     imgSrc: PropTypes.string,
     title: PropTypes.string,
     phone: PropTypes.string,
     career: PropTypes.array
 }
 
-this.defaultProps = {
+Card.defaultProps = {
     imgSrc: '',
     title: '',
     phone: '',

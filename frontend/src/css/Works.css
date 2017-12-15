@@ -55,6 +55,17 @@
     color: black;
 }
 
+.works .infoContainer .carrerCon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.works .infoContainer .carrerCon h6{
+    margin: 0;
+}
+
 .works .card img.true{
     opacity: 0.2;
     filter: blur(8px);
