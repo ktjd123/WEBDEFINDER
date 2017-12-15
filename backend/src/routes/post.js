@@ -8,8 +8,8 @@ const router = express.Router();
 router.post('/', (req, res) => {
     const body = req.body;
 
-    if(validateWrite(body).error.length > 0){
-        return res.status(400).json({code: 0, message: 'INVALID REQUEST'})
+    if (validateWrite(body).error.length > 0) {
+        return res.status(400).json({ code: 0, message: 'INVALID REQUEST' })
     }
 
     let newPost = new Post();
@@ -17,12 +17,12 @@ router.post('/', (req, res) => {
     newPost.writer = body.writer
     newPost.type = body.type
     newPost.content = body.content
-    
+
     newPost.save()
-    return res.status(200).json({success: true})
+    return res.status(200).json({ success: true })
 });
 
-function validateWrite(body){
+function validateWrite(body) {
     const validation = {
         type: 'object',
         properties: {
@@ -46,7 +46,7 @@ function validateWrite(body){
     return inspector.validate(validation, body)
 }
 
-router.get('/total', (req,res) => {
+router.get('/total', (req, res) => {
     // Post.getCount()
     // .then(
     //     count => {
@@ -63,90 +63,104 @@ router.get('/total', (req,res) => {
     //         })
     //     }
     // )
-
-    Post.count({}, (err, count) => {
-        if(err){
-            return res.status(500).json({
-                success: false
-            })
-        }else{
-            return res.status(200).json({
-                success: true,
-                count
+    Post.count({}).exec()
+    .then(
+        count => {
+            return res.json({
+                count: count/5
             })
         }
+    ).catch(err => {
+        return res.status(500).json({
+            success: false
+        })
     })
 })
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     Post.find()
-    .sort({"_id": -1})
-    .limit(5)
-    .exec((err, posts) => {
-        if(err) throw err;
-        res.json(posts)
-    })
+        .sort({ "_id": -1 })
+        .limit(5)
+        .exec((err, posts) => {
+            if (err) throw err;
+            res.json(posts)
+        })
 })
 
-router.get('/:id', (req,res) => {
+router.get('/:id', (req, res) => {
     let id = req.params.id;
 
     id *= 6;
     id -= 6;
-    Post.find().sort({"_id": -1}).skip(id).limit(5).exec((err, post) => {
+    Post.find().sort({ "_id": -1 }).skip(id).limit(5).exec((err, post) => {
         return res.json(post)
     })
 })
 
-router.get('/detail/:id', (req,res) => {
+router.get('/detail/:id', (req, res) => {
     let id = req.params.id;
 
-    Post.find({"_id": id}).exec()
-    .then(
+    Post.find({ "_id": id }).exec()
+        .then(
         (post) => {
+            console.log(post)
             return res.json(post)
         }
-    )
-    .catch(
+        )
+        .catch(
         (error) => {
             return res.status(500).json({
                 code: 1
             })
             console.error(error)
         }
-    )
+        )
 })
 
-router.delete('/:id', (req,res) => {
-    if(!mongoose.Types.ObjectId.isValid(req.params.id)){
+router.get('/detail/views/:id', (req,res) => {
+    let id = req.params.id;
+
+    Post.findById(id).exec().then(post => {
+        post.views = post.views +=1
+        post.save().exec().then(post => {
+            return res.json({success: true})
+        }).catch(err => {
+            console.error(err)
+            return res.status(500).json({success: false})
+        })
+    })
+})
+
+router.delete('/:id', (req, res) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
         return res.status(400).json({
             code: 0
         })
     }
 
     Post.findById(req.params.id).exec()
-    .then(
+        .then(
         post => {
-            if(!post){
+            if (!post) {
                 return res.status(404).json({
                     code: 1
                 })
             }
-            Post.remove({_id: req.params.id}).exec()
-            .then(
-                () => {res.json({success: true})}
-            )
-            .catch(
-                (err) => {console.error(err)}
-            )
+            Post.remove({ _id: req.params.id }).exec()
+                .then(
+                () => { res.json({ success: true }) }
+                )
+                .catch(
+                (err) => { console.error(err) }
+                )
         }
-    )
-    .catch(
+        )
+        .catch(
         err => {
             console.error(err)
             return res.status(500).send('/api/post/:id delete error')
         }
-    )
+        )
 })
 
 export default router;

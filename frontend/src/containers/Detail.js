@@ -1,6 +1,6 @@
 import React from 'react'
 import 'css/Detail.css'
-import { detailRequest } from 'actions/Detail'
+import { detailRequest,viewsRequest } from 'actions/Detail'
 import {postRemoveRequest} from 'actions/Post'
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -53,6 +53,7 @@ class Detail extends React.Component {
                 }
             }
             )
+            viewsRequest(this.props.match.params.id)
     }
 
     render() {

@@ -40,6 +40,7 @@ export default function Post (state = initialState, action){
         return update(state, {
             post:{
                 status: {$set: 'FAILURE'},
+                count: {$set: 0},
                 error: action.code
             }
         })

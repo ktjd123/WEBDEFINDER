@@ -26,11 +26,11 @@ class Jobs extends React.Component {
                     this.setState({
                         count: this.props.count
                     })
-                    let count = this.state.count / 5
-
+                    let count = this.state.count
+                    console.log(`count5-${count}`)
                     let rows = []
-                    for (let i = parseInt(count, 10); i > 0; i -= 1) {
-                        rows.push(i)
+                    for (let i = count; i > 0; i -= 1) {
+                        rows.push(parseInt(i,10)+1)
                     }
                     this.setState({
                         rows: rows

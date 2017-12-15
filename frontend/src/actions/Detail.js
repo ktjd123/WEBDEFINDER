@@ -44,3 +44,7 @@ export function detailFailure(){
         type: DETAIL_FAILURE
     }
 }
+
+export function viewsRequest(id){
+    return axios.get(`/api/post/detail/views/${id}`).then().catch(err => console.error(err))
+}
