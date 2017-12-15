@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-body{font-family: 'Saira Semi Condensed', sans-serif; font-size:15px; margin:0 auto; letter-spacing:0.1em;}
+body{font-family: 'Saira Semi Condensed', sans-serif; font-size:15px; margin:0 auto; letter-spacing:0.1em;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
 
 a{
     text-decoration: none;

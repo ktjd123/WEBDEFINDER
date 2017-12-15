@@ -42,7 +42,15 @@ app.use(session({
 app.use('/api', api);
 
 //client side routing support
+
 app.use('/', express.static(__dirname + '/../frontend'))
+app.use('/home', express.static(__dirname + '/../frontend'))
+app.use('/jobs', express.static(__dirname + '/../frontend'))
+app.use('/works', express.static(__dirname + '/../frontend'))
+app.use('/jobs/:num', express.static(__dirname + '/../frontend'))
+app.use('/detail/:num/:id', express.static(__dirname + '/../frontend'))
+app.use('/faq', express.static(__dirname + '/../frontend'))
+
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../frontend/index.html'))
 })
@@ -50,12 +58,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log('Express is running on port', port);
 });
-
-const redirectApp = express()
-redirectApp.use('*', (req,res) => {
-    res.redirect('https://aiaikasa.com' + req.url);
-})
-
-redirectApp.listen(5000, () => {
-    console.log('Redirect server running on port 8000')
-})

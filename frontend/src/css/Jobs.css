@@ -25,7 +25,6 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    border-bottom: 3px solid darkgray;
 }
 .jobs .container .show .left{
     width: 400px;
