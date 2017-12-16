@@ -10,7 +10,7 @@ export default class Header extends React.Component {
                     <Link to='/' className='logo'>웹디파인더</Link>
                     <span className='block' />
                     <div className='buttons'>
-                        <Link to='/works'>WORKS</Link>
+                        <Link to='/works'>DISCOVER</Link>
                         <Link to='/jobs'>JOBS</Link>
                         <Link to='/faq'>FAQ</Link>
                     </div>

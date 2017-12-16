@@ -71,9 +71,11 @@ app.use('/', _express2.default.static(__dirname + '/../frontend'));
 app.use('/home', _express2.default.static(__dirname + '/../frontend'));
 app.use('/jobs', _express2.default.static(__dirname + '/../frontend'));
 app.use('/works', _express2.default.static(__dirname + '/../frontend'));
+app.use('/write', _express2.default.static(__dirname + '/../frontend'));
 app.use('/jobs/:num', _express2.default.static(__dirname + '/../frontend'));
 app.use('/detail/:num/:id', _express2.default.static(__dirname + '/../frontend'));
 app.use('/faq', _express2.default.static(__dirname + '/../frontend'));
+app.use('/robots.txt', _express2.default.static(__dirname + '/../frontend/robots.txt'));
 
 app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname + '/../frontend/index.html'));

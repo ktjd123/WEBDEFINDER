@@ -62,7 +62,7 @@ class Detail extends React.Component {
 
         return (
             <div className='wrapper detail'>
-                <h1>{this.state.title}</h1>
+                <h2>{this.state.title}</h2>
                 <div className='container'>
                     <div className='info'>
                         {this.state.type}
@@ -71,7 +71,11 @@ class Detail extends React.Component {
                             <div>{this.state.writer}</div>
                         </div>
                     </div>
-                    <div className='content'>{this.state.content}</div>
+                    <div className='content'>
+                    {this.state.content.split('\n').map((item, key) => {
+                        return <div key={key}>{item}<br/></div>
+                    })}
+                    </div>
                     <div className='buttonsC'>
                         <a className='button' onClick={this.OnRemove}>삭제</a>
                         <Link to={jobsUrl} className='button'>목록</Link>

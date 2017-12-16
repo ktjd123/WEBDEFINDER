@@ -47,9 +47,11 @@ app.use('/', express.static(__dirname + '/../frontend'))
 app.use('/home', express.static(__dirname + '/../frontend'))
 app.use('/jobs', express.static(__dirname + '/../frontend'))
 app.use('/works', express.static(__dirname + '/../frontend'))
+app.use('/write', express.static(__dirname + '/../frontend'))
 app.use('/jobs/:num', express.static(__dirname + '/../frontend'))
 app.use('/detail/:num/:id', express.static(__dirname + '/../frontend'))
 app.use('/faq', express.static(__dirname + '/../frontend'))
+app.use('/robots.txt', express.static(__dirname + '/../frontend/robots.txt'))
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../frontend/index.html'))

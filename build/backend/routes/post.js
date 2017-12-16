@@ -82,18 +82,14 @@ router.get('/total', function (req, res) {
     //         })
     //     }
     // )
-
-    _Post2.default.count({}, function (err, count) {
-        if (err) {
-            return res.status(500).json({
-                success: false
-            });
-        } else {
-            return res.status(200).json({
-                success: true,
-                count: count
-            });
-        }
+    _Post2.default.count({}).exec().then(function (count) {
+        return res.json({
+            count: count / 5
+        });
+    }).catch(function (err) {
+        return res.status(500).json({
+            success: false
+        });
     });
 });
 
@@ -107,8 +103,8 @@ router.get('/', function (req, res) {
 router.get('/:id', function (req, res) {
     var id = req.params.id;
 
-    id *= 6;
-    id -= 6;
+    id *= 5;
+    id -= 5;
     _Post2.default.find().sort({ "_id": -1 }).skip(id).limit(5).exec(function (err, post) {
         return res.json(post);
     });
@@ -124,6 +120,19 @@ router.get('/detail/:id', function (req, res) {
             code: 1
         });
         console.error(error);
+    });
+});
+
+router.get('/detail/views/:id', function (req, res) {
+    var id = req.params.id;
+
+    _Post2.default.findById(id).exec().then(function (post) {
+        post.views = post.views += 1;
+        post.save();
+        return res.status(200);
+    }).catch(function (err) {
+        console.error(err);
+        return res.status(500);
     });
 });
 

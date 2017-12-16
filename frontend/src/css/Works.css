@@ -14,7 +14,7 @@
 .works .container {
     display: flex;
     flex-direction: row;
-    align-content: center;
+    align-content: space;
     justify-content: space-around;
     margin-bottom: 50px;
 }
@@ -37,6 +37,7 @@
 }
 
 .works .infoContainer {
+    color: black;
     transition: 0.3s;
     opacity: 0;
     position: absolute;
@@ -69,4 +70,10 @@
 .works .card img.true{
     opacity: 0.2;
     filter: blur(8px);
+}
+
+@media (max-width: 1500px){
+    .works .container{
+        flex-direction: column;
+    }
 }

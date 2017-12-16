@@ -10,7 +10,7 @@
 }
 
 .write input, textarea {
-    border: 3px solid #EEE;
+    border: 1px solid #aaa;
     height: 30px;
     width: 1000px;
     font-size: 1rem;
@@ -20,13 +20,13 @@
 }
 
 .write .info .writer{
-    width: 770px;
+    width: 775px;
     margin-right: 20px;
 }
 .write .info .type{
     height: 37px;
-    width: 200px;
-    border: 3px solid #eee;
+    width: 205px;
+    border: 1px solid #aaa;
 }
 .write .content{
     width: 1000px;
@@ -39,7 +39,6 @@
 .write .buttons a{
     cursor: pointer;
     padding: 6px 20px 6px 20px;
-    border: 2px solid #eee;
     background: #eee;
     margin: 0 10px 0 10px;
 }

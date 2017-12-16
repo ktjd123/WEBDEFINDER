@@ -4,23 +4,29 @@
     align-items: center;
 }
 
+.detail h2{
+    margin-bottom: 0;
+}
+
 .detail .container{
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around
+    justify-content: space-around;
+    width: 60vw;
 }
 
 .detail .container .info{
     display: flex;
-    width: 90vw;
+    width: 90%;
     align-items: center;
     justify-content: space-between;
-    font-size: 1rem;
     height: 50px;
-    border-bottom: 3px solid #EEE;
-    border-top: 3px solid #EEE;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
     padding: 0 20px 0 20px;
+    font-weight: bold;
 }
 
 .detail .container .info .Sinfo{
@@ -31,8 +37,8 @@
 
 .detail .container .content{
     padding: 20px;
-    width: 90vw;
-    border-bottom: 3px solid #EEE
+    width: 90%;
+    border-bottom: 1px solid #aaa;
 }
 
 .detail .buttonsC{
@@ -45,15 +51,10 @@
 
 .detail .button{
     cursor: pointer;
-    padding-right: 12px;
-    padding-left: 12px;
-    height: 30px;
+    padding: 6px 20px 6px 20px;
     background: #eee;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 0.8rem;
-    font-weight: 600;
 }

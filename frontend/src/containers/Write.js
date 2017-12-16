@@ -50,6 +50,20 @@ class Write extends React.Component {
             return
         }
 
+        if(title.length === 0){
+            toast.error('제목을 입력해주세요')
+            return
+        }
+
+        if(writer.length === 0){
+            toast.error('글쓴이를 입력해주세요')
+            return
+        }
+
+        if(content.length ===0){
+            toast.error('본문을 입력해주세요')
+        }
+
         this.props.writeRequest(title,writer,type,content)
         .then(
             () => {

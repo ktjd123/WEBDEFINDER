@@ -18,7 +18,7 @@ header .block{
 
 header .logo{
     font-family:'Jeju Gothic';
-    font-size: 1rem;
+    font-size: .8rem;
 }
 header .buttons a{
     margin: 0 40px 0 40px;

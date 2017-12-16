@@ -67,7 +67,7 @@ router.get('/total', (req, res) => {
     .then(
         count => {
             return res.json({
-                count: count/5
+                count: (count)/5
             })
         }
     ).catch(err => {
@@ -90,8 +90,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     let id = req.params.id;
 
-    id *= 6;
-    id -= 6;
+    id *= 5;
+    id -= 5;
     Post.find().sort({ "_id": -1 }).skip(id).limit(5).exec((err, post) => {
         return res.json(post)
     })
@@ -103,7 +103,6 @@ router.get('/detail/:id', (req, res) => {
     Post.find({ "_id": id }).exec()
         .then(
         (post) => {
-            console.log(post)
             return res.json(post)
         }
         )
@@ -122,12 +121,12 @@ router.get('/detail/views/:id', (req,res) => {
 
     Post.findById(id).exec().then(post => {
         post.views = post.views +=1
-        post.save().exec().then(post => {
-            return res.json({success: true})
-        }).catch(err => {
-            console.error(err)
-            return res.status(500).json({success: false})
-        })
+        post.save()
+        return res.status(200)
+    })
+    .catch(err => {
+        console.error(err)
+        return res.status(500)
     })
 })
 

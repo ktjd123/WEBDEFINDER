@@ -26,14 +26,6 @@ export default class Card extends React.Component{
 
     render(){
 
-        const mapToComponent = data => {
-            return data.map((career,i) => {
-                return(
-                    <h6 key={i}>{career}</h6>
-                )
-            })
-        }
-
         return(
             <div className='card'>
                 <img alt='' src={this.props.imgSrc} className={`${this.state.shouldDim}`}/>
@@ -43,10 +35,6 @@ export default class Card extends React.Component{
                     <h5>{this.props.email}</h5>
                     <h3>PHONE</h3>
                     <h5>{this.props.phone}</h5>
-                    <h3>CAREER</h3>
-                    <div className='carrerCon'>
-                        {mapToComponent(this.props.career)}
-                    </div>
                 </div>
             </div>
         )
@@ -56,13 +44,11 @@ export default class Card extends React.Component{
 Card.propTypes = {
     imgSrc: PropTypes.string,
     title: PropTypes.string,
-    phone: PropTypes.string,
-    career: PropTypes.array
+    phone: PropTypes.string
 }
 
 Card.defaultProps = {
     imgSrc: '',
     title: '',
-    phone: '',
-    career: []
+    phone: ''
 }
