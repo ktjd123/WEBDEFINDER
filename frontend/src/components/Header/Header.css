@@ -36,3 +36,10 @@ footer{
     background: white;
     z-index: 9;
 }
+
+header.true{
+    display: none;
+}
+footer.true{
+    display: none;
+}

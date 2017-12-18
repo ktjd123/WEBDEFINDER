@@ -10,6 +10,7 @@ export default class Card extends React.Component{
         }
         this.onMouse = this.onMouse.bind(this)
         this.mouseOut = this.mouseOut.bind(this)
+        this.click =this.click.bind(this)
     }
 
     onMouse(){
@@ -24,10 +25,14 @@ export default class Card extends React.Component{
         })
     }
 
+    click(){
+        window.open(this.props.link)
+    }
+
     render(){
 
         return(
-            <div className='card'>
+            <div className='card' onClick={this.click}>
                 <img alt='' src={this.props.imgSrc} className={`${this.state.shouldDim}`}/>
                 <div className={`infoContainer ${this.state.shouldDim}`} onMouseOver={this.onMouse} onMouseOut={this.mouseOut}>
                     <h2>{this.props.title}</h2>
@@ -44,11 +49,13 @@ export default class Card extends React.Component{
 Card.propTypes = {
     imgSrc: PropTypes.string,
     title: PropTypes.string,
-    phone: PropTypes.string
+    phone: PropTypes.string,
+    link: PropTypes.string
 }
 
 Card.defaultProps = {
     imgSrc: '',
     title: '',
-    phone: ''
+    phone: '',
+    link: ''
 }

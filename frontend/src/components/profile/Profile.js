@@ -25,8 +25,6 @@ class Profile extends React.Component {
         if(props.bgLink !== undefined && props.bgLink !== ""){
             bg = (<a href={props.bgLink}><img src='/blog.png' alt='' /></a>)
         }
-        
-        console.log(props.gbLink)
 
         return (
             <div className='profile'>

@@ -1,0 +1,53 @@
+.door{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.door video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+}
+
+.door video.width{
+    width: 100vw;
+}
+
+.door video.height{
+    height: 100vh;
+}
+
+.door h1{
+    color: white;
+    font-size: 5rem;
+    font-family: serif;
+}
+
+.door h3{
+    color: lightgray;
+    font-size: 1rem;
+}
+
+.door a{
+    margin-top: 50px;
+    background: dodgerblue;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white!important;
+    border-radius: 3px;
+    font-size: 1rem;
+}

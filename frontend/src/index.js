@@ -19,7 +19,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from 'components/Header/Header'
 //HEADER import
 
-import { App, Faq, Jobs, Write, Detail, Error404, Works} from 'containers'
+import { App, Faq, Jobs, Write, Detail, Error404, Works, Door} from 'containers'
 
 //default css
 import 'css/default.css';
@@ -33,7 +33,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                <Header />
+                <Route path='/' component={Header}/>
                 
                 <ToastContainer
                     position="bottom-center"
@@ -44,7 +44,8 @@ ReactDOM.render(
                     pauseOnHover />
 
                 <Switch>
-                    <Redirect exact from='/' to='home' />
+                    <Redirect exact from='/' to='/door' />
+                    <Route exact path='/door' component={Door}/>
                     <Route exact path='/home' component={App} />
                     <Route exact path='/faq' component={Faq} />
                     <Route exact path='/jobs/:id' component={Jobs}/>
