@@ -18,14 +18,8 @@
     z-index: -1;
     margin: 0;
     padding: 0;
-}
-
-.door video.width{
-    width: 100vw;
-}
-
-.door video.height{
-    height: 100vh;
+    min-width: 100%; 
+    min-height: 100%;
 }
 
 .door h1{
